@@ -16,8 +16,7 @@ apt-get install -y \
 if [[ $(uname -m) == "arm64" || $(uname -m) == "aarch64" ]]; then
     wget --no-check-certificate "https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/arm64/docker-ce-cli_20.10.17~3-0~ubuntu-focal_arm64.deb"
     dpkg -i "docker-ce-cli_20.10.17~3-0~ubuntu-focal_arm64.deb"
-    curl -O "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
-
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
 else
     wget --no-check-certificate "https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_20.10.17~3-0~ubuntu-focal_amd64.deb"
     dpkg -i "docker-ce-cli_20.10.17~3-0~ubuntu-focal_amd64.deb"
