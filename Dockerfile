@@ -1,2 +1,2 @@
-FROM node:aline
+FROM node:alpine
 RUN node -v
