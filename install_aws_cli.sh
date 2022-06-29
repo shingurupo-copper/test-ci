@@ -20,8 +20,8 @@ else
     wget --no-check-certificate "https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_20.10.17~3-0~ubuntu-focal_amd64.deb"
     dpkg -i "docker-ce-cli_20.10.17~3-0~ubuntu-focal_amd64.deb"
 fi
-nslookup DOCKER_HOST
 nslookup docker
+nslookup DOCKER_HOST
 export DOCKER_HOST=tcp://172.17.0.1:2375
 docker info
 # install aws cli
