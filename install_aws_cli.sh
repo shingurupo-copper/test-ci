@@ -8,7 +8,9 @@ apt-get install -y \
     lsb-release \
     zip \
     unzip \
-    wget
+    wget \
+    dnsutils
+
 
 # install docker cli
 if [[ $(uname -m) == "arm64" || $(uname -m) == "aarch64" ]]; then
