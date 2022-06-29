@@ -1,0 +1,14 @@
+stages:
+  - build
+  - deploy
+
+build-docker-image:
+  services:
+    - docker:20.10.16-dind
+  image: docker:git
+  stage: build
+  before_script:
+    - docker info
+  script:
+    - echo "$(git log -1)"
+    - docker build -t baseforci .
