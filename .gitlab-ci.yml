@@ -5,9 +5,10 @@ stages:
 build-docker-image:
   services:
     - docker:20.10.16-dind
-  image: docker:git
+  image: ubuntu
   stage: build
   before_script:
+    - . ./install_aws_cli.sh
     - docker info
   script:
     - echo "$(git log -1)"
