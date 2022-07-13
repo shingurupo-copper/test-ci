@@ -6,14 +6,28 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_HOST: "tcp://docker:2375" # dind with TLS disabled
 
-build-docker-image:
+# build-docker-image:
+#   services:
+#     - docker:20.10.16-dind
+#   image: ubuntu
+#   stage: build
+#   before_script:
+#     # - . ./install_aws_cli.sh
+#     - docker info
+#   script:
+#     - echo "$(git log -1)"
+#     - docker build -t baseforci .
+
+build-docker-image-style-ruby:
+  image:
+    name: amazon/aws-cli
+    entrypoint: [""]
   services:
-    - docker:20.10.16-dind
-  image: ubuntu
-  stage: build
+    - name: docker:dind
+      alias: dockerhost
   before_script:
-    # - . ./install_aws_cli.sh
+    - amazon-linux-extras install docker
+    - yum update && yum install -y jq
+    - aws --version
     - docker info
-  script:
-    - echo "$(git log -1)"
-    - docker build -t baseforci .
+    - docker --version
