@@ -23,13 +23,12 @@ build-docker-image-style-ruby:
     name: amazon/aws-cli
     entrypoint: [""]
   services:
-    - name: docker:dind
-      alias: dockerhost
+     - docker:20.10.16-dind
   before_script:
     - amazon-linux-extras install docker
     - yum update && yum install -y jq
     - aws --version
     - docker info
     - docker --version
-  script: |
-    docker version
+  script: 
+    - docker ps
