@@ -12,7 +12,7 @@ build-docker-image:
   image: ubuntu
   stage: build
   before_script:
-    - . ./install_aws_cli.sh
+    # - . ./install_aws_cli.sh
     - docker info
   script:
     - echo "$(git log -1)"
