@@ -31,3 +31,5 @@ build-docker-image-style-ruby:
     - aws --version
     - docker info
     - docker --version
+  script: |
+    docker version
