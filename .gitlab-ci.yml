@@ -1,6 +1,5 @@
 stages:
   - build
-  - deploy
 
 variables:
   DOCKER_TLS_CERTDIR: ""
@@ -18,7 +17,8 @@ variables:
 #     - echo "$(git log -1)"
 #     - docker build -t baseforci .
 
-build-docker-image-style-ruby:
+build-ruby-image:
+  stage: build
   image:
     name: amazon/aws-cli
     entrypoint: [""]
