@@ -32,3 +32,4 @@ build-ruby-image:
     - docker --version
   script: 
     - docker ps
+    - docker build -t test .
