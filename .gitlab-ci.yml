@@ -17,19 +17,36 @@ variables:
 #     - echo "$(git log -1)"
 #     - docker build -t baseforci .
 
+# build-ruby-image:
+#   stage: build
+#   image:
+#     name: amazon/aws-cli
+#     entrypoint: [""]
+#   services:
+#      - docker:20.10.16-dind
+#   before_script:
+#     - amazon-linux-extras install docker
+#     - yum update && yum install -y jq
+#     - aws --version
+#     - docker info
+#     - docker --version
+#   script:
+#     - docker ps
+#     - docker build -t test .
+
 build-ruby-image:
   stage: build
   image:
     name: amazon/aws-cli
     entrypoint: [""]
   services:
-     - docker:20.10.16-dind
+    - docker:20.10.16-dind
   before_script:
     - amazon-linux-extras install docker
     - yum update && yum install -y jq
     - aws --version
     - docker info
     - docker --version
-  script: 
+  script:
     - docker ps
     - docker build -t test .
